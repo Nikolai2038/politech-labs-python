@@ -1,22 +1,20 @@
 import os
-os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3"
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras import utils
 
-#Подготовка правильных ответов
-#y_train=unils.to_categorical(y_train, 6)
+# Подготовка правильных ответов
+model = tf.keras.models.load_model("plant_diagnosis_3D.h5")
 
-model = tf.keras.models.load_model('plant_diagnosis_3D.h5')
-
-path = 'image_for_test/1.png'
+path = "image_for_test/1.png"
 
 image = tf.keras.preprocessing.image.load_img(path, target_size=(4, 6))
 x = tf.keras.preprocessing.image.img_to_array(image)
 classes = model.predict(np.array([x]))
 
-print(classes) #Выведет набор вероятностей принадлежности тестового изображения к каждому классу
-print('номер класса, предсказанного нейросетью')
-print(np.argmax(classes)+1)
+print('Вероятность принадлежности тестового изображения к одному из классов:')
+print(classes)
 
-
+print("Номер класса, предсказанного нейросетью:")
+print(np.argmax(classes) + 1)
