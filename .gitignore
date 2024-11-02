@@ -1,0 +1,8 @@
+# JetBrains products
+/.idea
+
+# VS Code
+/.vscode
+
+# Python virtual environment
+/venv
