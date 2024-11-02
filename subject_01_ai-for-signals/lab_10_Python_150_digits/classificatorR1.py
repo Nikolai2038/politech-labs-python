@@ -6,10 +6,10 @@
 #файлы для тестирования: digit6102 -изображение числа 6 -правильное распознавание
 #digit 6045 - изображение числа 6 -ошибка распознавания
 
-from tensorflow.python.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.python.keras.models import Sequential
-from tensorflow.python.keras.layers import Conv2D, MaxPooling2D
-from tensorflow.python.keras.layers import Activation, Dropout, Flatten, Dense
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Conv2D, MaxPooling2D
+from tensorflow.keras.layers import Activation, Dropout, Flatten, Dense
 
 # Каталог с данными для обучения
 train_dir = 'train_dir'
@@ -82,7 +82,7 @@ test_generator = datagen.flow_from_directory(
     batch_size=batch_size,
     class_mode='sparse')
 
-model.fit_generator(
+model.fit(
     train_generator,
     steps_per_epoch=nb_train_samples // batch_size,
     validation_data=val_generator,
@@ -91,5 +91,5 @@ model.fit_generator(
     shuffle = True)
 model.save('digit_diagnosis.h5')
 
-scores = model.evaluate_generator(test_generator, nb_test_samples // batch_size)
+scores = model.evaluate(test_generator)
 print("Score: ", scores)

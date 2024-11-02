@@ -2,7 +2,7 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import tensorflow as tf
 import numpy as np
-from tensorflow.python.keras import utils
+from tensorflow.keras import utils
 
 #Подготовка правильных ответов
 

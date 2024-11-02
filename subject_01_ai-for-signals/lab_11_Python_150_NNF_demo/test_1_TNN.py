@@ -2,7 +2,7 @@ import os
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
 import numpy as np
 import tensorflow as tf
-from tensorflow.python.keras import utils
+from tensorflow.keras import utils
 
 #Подготовка правильных ответов
 #y_train=unils.to_categorical(y_train, 6)
