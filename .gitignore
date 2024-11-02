@@ -1,8 +1,11 @@
 # JetBrains products
-/.idea
+**/.idea
 
 # VS Code
-/.vscode
+**/.vscode
 
 # Python virtual environment
-/venv
+**/venv
+
+# Created models
+**/*.h5
