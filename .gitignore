@@ -2,7 +2,8 @@
 **/.idea
 
 # VS Code
-**/.vscode
+**/.vscode/*
+!**/.vscode/launch.json
 
 # Python virtual environment
 **/venv
