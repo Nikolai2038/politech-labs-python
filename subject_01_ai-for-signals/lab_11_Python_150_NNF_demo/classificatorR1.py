@@ -86,7 +86,7 @@ model.fit(
     epochs=epochs,
     shuffle=True,
 )
-model.save("plant_diagnosis_3D.h5")
+model.save("plant_diagnosis_3D.keras")
 
 scores = model.evaluate(test_generator)
 print("Score: ", scores)

@@ -8,5 +8,11 @@
 # Python virtual environment
 **/venv
 
+# ========================================
 # Created models
-**/*.h5
+# ========================================
+# Legacy format
+**/*.keras
+# New format
+**/*.keras
+# ========================================

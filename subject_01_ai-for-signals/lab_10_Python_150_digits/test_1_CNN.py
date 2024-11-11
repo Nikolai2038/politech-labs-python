@@ -5,7 +5,7 @@ import tensorflow as tf
 import numpy as np
 
 # Подготовка правильных ответов
-model = tf.keras.models.load_model("digit_diagnosis.h5")
+model = tf.keras.models.load_model("digit_diagnosis.keras")
 
 path = "image_for_test/digit6024.png"
 
@@ -13,7 +13,7 @@ image = tf.keras.preprocessing.image.load_img(path, target_size=(28, 28))
 x = tf.keras.preprocessing.image.img_to_array(image)
 classes = model.predict(np.array([x]))
 
-print('Вероятность принадлежности тестового изображения к одному из классов:')
+print("Вероятность принадлежности тестового изображения к одному из классов:")
 print(classes)
 
 print("Номер класса, предсказанного нейросетью:")

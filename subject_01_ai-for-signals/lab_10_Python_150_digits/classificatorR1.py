@@ -99,7 +99,7 @@ model.fit(
     epochs=epochs,
     shuffle=True,
 )
-model.save("digit_diagnosis.h5")
+model.save("digit_diagnosis.keras")
 
 scores = model.evaluate(test_generator)
 print("Score: ", scores)
