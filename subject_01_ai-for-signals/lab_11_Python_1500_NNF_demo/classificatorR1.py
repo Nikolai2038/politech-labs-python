@@ -3,9 +3,12 @@
 # Количество параметров Харалика - 4.
 # Количество цифровых описаний для обучения - 1500.
 
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Activation, Dropout, Flatten, Dense
+from keras.src.legacy.preprocessing.image import ImageDataGenerator
+from keras.src.models.sequential import Sequential
+from keras.src.layers.activations.activation import Activation
+from keras.src.layers.regularization.dropout import Dropout
+from keras.src.layers.reshaping.flatten import Flatten
+from keras.src.layers.core.dense import Dense
 
 # Каталог с данными для обучения
 train_dir = "train_dir"

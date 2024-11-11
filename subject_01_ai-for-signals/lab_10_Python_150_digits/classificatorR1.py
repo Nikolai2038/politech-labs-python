@@ -5,10 +5,14 @@
 # - digit6102 - изображение числа 6 - правильное распознавание
 # - digit6045 - изображение числа 6 - ошибка распознавания
 
-from tensorflow.keras.preprocessing.image import ImageDataGenerator
-from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Conv2D, MaxPooling2D
-from tensorflow.keras.layers import Activation, Dropout, Flatten, Dense
+from keras.src.legacy.preprocessing.image import ImageDataGenerator
+from keras.src.models.sequential import Sequential
+from keras.src.layers.convolutional.conv2d import Conv2D
+from keras.src.layers.pooling.max_pooling2d import MaxPooling2D
+from keras.src.layers.activations.activation import Activation
+from keras.src.layers.regularization.dropout import Dropout
+from keras.src.layers.reshaping.flatten import Flatten
+from keras.src.layers.core.dense import Dense
 
 # Каталог с данными для обучения
 train_dir = "train_dir"
