@@ -22,11 +22,19 @@ img_width, img_height = 4, 6
 # Размерность тензора на основе изображения для входных данных в нейронную сеть
 input_shape = (img_width, img_height, 3)
 
-# Количество эпох
-epochs = 200
+# TODO: В цикле проверить все значения
+# Количество эпох: 50, 75, 100 или 125
+epochs = 50
 
-# Размер мини-выборки
+# TODO: В цикле проверить все значения
+# Размер мини-выборки: 20, 50 или 100
 batch_size = 20
+
+# Количество нейронов во входном слое
+input_neurons = 500
+
+# Количество нейронов в скрытом слое
+hidden_neurons = 500
 
 # Количество изображений для обучения
 nb_train_samples = 1000
@@ -39,15 +47,18 @@ nb_test_samples = 200
 
 model = Sequential()
 
-model.add(Dense(20, input_shape=input_shape))
+# Входной слой
+model.add(Dense(input_neurons, input_shape=input_shape))
 model.add(Activation("relu"))
 
+# Скрытый слой
 model.add(Flatten())
-model.add(Dense(20))
+model.add(Dense(hidden_neurons))
 model.add(Activation("relu"))
 
 model.add(Dropout(0.25))
 
+# Выходной слой
 model.add(Dense(8))
 model.add(Activation("softmax"))
 
@@ -90,3 +101,9 @@ model.save("plant_diagnosis_3D.keras")
 
 scores = model.evaluate(test_generator)
 print("Score: ", scores)
+
+# TODO: Вывести время, затраченное на обучение - в секундах с долями
+# ...
+
+# TODO: Вывести количество эпох и размер мини-выборки, при которых самый высокий Score
+# ...

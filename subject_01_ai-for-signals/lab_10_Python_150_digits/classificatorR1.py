@@ -25,11 +25,21 @@ img_width, img_height = 28, 28
 # Размерность тензора на основе изображения для входных данных в нейронную сеть
 input_shape = (img_width, img_height, 3)
 
-# Количество эпох
-epochs = 100
+# TODO: В цикле проверить все значения
+# Количество эпох: 50, 75, 100 или 125
+epochs = 50
 
-# Размер мини-выборки
-batch_size = 2
+# TODO: В цикле проверить все значения
+# Размер мини-выборки: 20, 50 или 100
+batch_size = 20
+
+# TODO: В цикле проверить все значения
+# Количество нейронов во входном слое: 500, 700, 900 или 1200
+input_neurons = 500
+
+# TODO: В цикле проверить все значения
+# Количество нейронов в скрытом слое: 500, 700, 900 или 1200
+hidden_neurons = 500
 
 # Количество изображений для обучения
 nb_train_samples = 100
@@ -42,7 +52,8 @@ nb_test_samples = 20
 
 model = Sequential()
 
-model.add(Conv2D(16, (3, 3), input_shape=input_shape))
+# Входной слой
+model.add(Conv2D(input_neurons, (3, 3), input_shape=input_shape))
 model.add(Activation("relu"))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 
@@ -54,12 +65,14 @@ model.add(Conv2D(32, (3, 3)))
 model.add(Activation("relu"))
 model.add(MaxPooling2D(pool_size=(2, 2)))
 
+# Скрытый слой
 model.add(Flatten())
-model.add(Dense(20))
+model.add(Dense(hidden_neurons))
 model.add(Activation("relu"))
 
 model.add(Dropout(0.25))
 
+# Выходной слой
 model.add(Dense(9))
 model.add(Activation("softmax"))
 
@@ -83,7 +96,6 @@ val_generator = datagen.flow_from_directory(
     class_mode="sparse",
 )
 
-
 test_generator = datagen.flow_from_directory(
     test_dir,
     target_size=(img_width, img_height),
@@ -103,3 +115,9 @@ model.save("digit_diagnosis.keras")
 
 scores = model.evaluate(test_generator)
 print("Score: ", scores)
+
+# TODO: Вывести время, затраченное на обучение - в секундах с долями
+# ...
+
+# TODO: Вывести количество эпох, размер мини-выборки и количество нейронов во входном и скрытом слоях, при которых самый высокий Score
+# ...
